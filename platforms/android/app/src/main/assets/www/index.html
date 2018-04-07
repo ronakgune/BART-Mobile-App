@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline' data: blob:; script-src * 'unsafe-inline'  'unsafe-eval' data: blob:; img-src * data: content:;">
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/tab.operation.js"></script>
+        <script src="js/clientSide.js"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <title>BART</title>
+    </head>
+
+    <body onload="BodyOnLoad()">
+        <div class="container">
+            <header>
+                <h1>Bay Area Rapid Transit</h1>
+                <h4 id="visitNumber">Visit number: </h4>
+            </header>
+            <div class="tab">
+                <button class="tablinks" id="PlanButton" onclick="openTab(event, 'Plan')">Trip</button>
+                <button class="tablinks" onclick="openTab(event, 'DisplayMap')">Route Map</button>
+                <button class="tablinks" onclick="openTab(event, 'TripDetails')">Details</button>
+                <button class="tablinks" onclick="openTab(event, 'StationInfo')">Station Information</button>
+            </div>
+            <div id="Plan" class="tabcontent">
+                <table>
+                    <tr>
+                        <td>Starting Station</td>
+                        <td class="stationList" id="sourceStation" onchange="CheckSelection(true)">
+                            <select id="sourceSelector"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Destination</td>
+                        <td class="stationList" id="destStation" onchange="CheckSelection(false)">
+                            <select id="destSelector" ></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center">Next arrival: </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="timer" style="text-align: center"> </td>
+                    </tr>
+                </table>
+            </div>
+            <div  id="DisplayMap" class="tabcontent">
+                    <div id="map"></div>
+            </div>
+            <div id="StationInfo" class="tabcontent">
+                <div id="sourceStationInfo"></div>
+            </div>
+            <div id="TripDetails" class="tabcontent">
+                <table class="plannerTable" id="tripDetailsTable">
+                </table>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+
+</html>
