@@ -1,6 +1,3 @@
-# A Blank PhoneGap App
-
-## Usage
 
 ### PhoneGap CLI
 
